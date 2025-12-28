@@ -86,6 +86,11 @@ The AI Agent will automatically interpret the request and perform the appropriat
 - Sensitive credentials are configured within n8n and are **not stored in this repository**
 - The workflow can be extended to support databases, dashboards, or notifications
 
+
+## ⚠️ Note: This workflow file uses placeholder values.  
+- Configure your own credentials, webhook ID, and Google Sheet details in n8n before activating.
+
+
 ---
 
 ## 👤 Author
