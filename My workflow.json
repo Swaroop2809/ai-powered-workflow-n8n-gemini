@@ -1,0 +1,233 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "initialMessages": "Hi there! 👋\nI am a General Store Inventory. How can I assist you today?",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "b89986c9-b228-4a5f-b8dd-3b352adc7af6",
+      "name": "When chat message received",
+      "webhookId": "4cfe7ac7-922e-424e-ba76-d446cc22ff7e"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        208,
+        0
+      ],
+      "id": "bdfef7c2-e5f8-423e-819b-f375a597adf0",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        224,
+        208
+      ],
+      "id": "9e90b5c1-447f-4630-8af1-2c3329e565b7",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1Z8QoWfhVPrFUgDr_lUA_3tpXr32dnpjn7SsElivVg1g",
+          "mode": "list",
+          "cachedResultName": "general_store_stock",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Z8QoWfhVPrFUgDr_lUA_3tpXr32dnpjn7SsElivVg1g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1826156060,
+          "mode": "list",
+          "cachedResultName": "General Store Stock",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Z8QoWfhVPrFUgDr_lUA_3tpXr32dnpjn7SsElivVg1g/edit#gid=1826156060"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Stock Name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Stock_Name__using_to_match_', ``, 'string') }}",
+            "Quantity": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Quantity', ``, 'string') }}"
+          },
+          "matchingColumns": [
+            "Stock Name"
+          ],
+          "schema": [
+            {
+              "id": "Stock Name",
+              "displayName": "Stock Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Quantity",
+              "displayName": "Quantity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        368,
+        208
+      ],
+      "id": "8d27ba2c-c3a3-4c7c-a02e-b3d27b0ebaf8",
+      "name": "Update Inventory",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "dIR1xnrCMmRFuf4N",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Z8QoWfhVPrFUgDr_lUA_3tpXr32dnpjn7SsElivVg1g",
+          "mode": "list",
+          "cachedResultName": "general_store_stock",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Z8QoWfhVPrFUgDr_lUA_3tpXr32dnpjn7SsElivVg1g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1826156060,
+          "mode": "list",
+          "cachedResultName": "General Store Stock",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Z8QoWfhVPrFUgDr_lUA_3tpXr32dnpjn7SsElivVg1g/edit#gid=1826156060"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        512,
+        192
+      ],
+      "id": "382be0bc-3f5b-42d6-8454-e0c3e62a9a63",
+      "name": "Search Inventory",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "dIR1xnrCMmRFuf4N",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        80,
+        208
+      ],
+      "id": "09ea10d3-7e9e-4bda-81ca-bb9fa4821643",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "Q5ERXzaVbLdlM1vJ",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Inventory": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search Inventory": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "7a264e72-c152-43f5-9c14-18e8b91f0048",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "b6701c77a4202d4c073fac44e000da78daa9de37e8da0768af67eeb7ae2133c9"
+  },
+  "id": "TORfR4vuV2jcR2Ob",
+  "tags": []
+}
