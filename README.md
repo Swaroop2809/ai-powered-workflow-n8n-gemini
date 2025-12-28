@@ -17,7 +17,7 @@ The workflow follows an **agent-based architecture** where:
 - Inventory data is read from or written to Google Sheets
 - A response is returned to the user
 
-![AI Workflow](workflow.png)
+![AI Workflow](Workflow.png)
 
 ---
 
