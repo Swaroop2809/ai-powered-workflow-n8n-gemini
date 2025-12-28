@@ -15,7 +15,7 @@
       ],
       "id": "b89986c9-b228-4a5f-b8dd-3b352adc7af6",
       "name": "When chat message received",
-      "webhookId": "4cfe7ac7-922e-424e-ba76-d446cc22ff7e"
+      "webhookId": "YOUR_WEBHOOK_ID"
     },
     {
       "parameters": {
@@ -46,17 +46,17 @@
         "operation": "appendOrUpdate",
         "documentId": {
           "__rl": true,
-          "value": "1Z8QoWfhVPrFUgDr_lUA_3tpXr32dnpjn7SsElivVg1g",
+          "value": "YOUR_GOOGLE_SHEET_ID",
           "mode": "list",
           "cachedResultName": "general_store_stock",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Z8QoWfhVPrFUgDr_lUA_3tpXr32dnpjn7SsElivVg1g/edit?usp=drivesdk"
+          "cachedResultUrl": "YOUR_GOOGLE_SHEET_URL"
         },
         "sheetName": {
           "__rl": true,
           "value": 1826156060,
           "mode": "list",
           "cachedResultName": "General Store Stock",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Z8QoWfhVPrFUgDr_lUA_3tpXr32dnpjn7SsElivVg1g/edit#gid=1826156060"
+          "cachedResultUrl": "YOUR_GOOGLE_SHEET_URL"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -101,28 +101,24 @@
       ],
       "id": "8d27ba2c-c3a3-4c7c-a02e-b3d27b0ebaf8",
       "name": "Update Inventory",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "dIR1xnrCMmRFuf4N",
-          "name": "Google Sheets account"
-        }
-      }
+      "credentials": {}
+
     },
     {
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1Z8QoWfhVPrFUgDr_lUA_3tpXr32dnpjn7SsElivVg1g",
+          "value": "YOUR_GOOGLE_SHEET_ID",
           "mode": "list",
           "cachedResultName": "general_store_stock",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Z8QoWfhVPrFUgDr_lUA_3tpXr32dnpjn7SsElivVg1g/edit?usp=drivesdk"
+          "cachedResultUrl": "YOUR_GOOGLE_SHEET_URL"
         },
         "sheetName": {
           "__rl": true,
           "value": 1826156060,
           "mode": "list",
           "cachedResultName": "General Store Stock",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Z8QoWfhVPrFUgDr_lUA_3tpXr32dnpjn7SsElivVg1g/edit#gid=1826156060"
+          "cachedResultUrl": "YOUR_GOOGLE_SHEET_URL"
         },
         "options": {}
       },
@@ -134,12 +130,7 @@
       ],
       "id": "382be0bc-3f5b-42d6-8454-e0c3e62a9a63",
       "name": "Search Inventory",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "dIR1xnrCMmRFuf4N",
-          "name": "Google Sheets account"
-        }
-      }
+      "credentials": {}
     },
     {
       "parameters": {
@@ -153,12 +144,7 @@
       ],
       "id": "09ea10d3-7e9e-4bda-81ca-bb9fa4821643",
       "name": "Google Gemini Chat Model",
-      "credentials": {
-        "googlePalmApi": {
-          "id": "Q5ERXzaVbLdlM1vJ",
-          "name": "Google Gemini(PaLM) Api account 2"
-        }
-      }
+      "credentials": {}
     }
   ],
   "pinData": {},
@@ -226,7 +212,7 @@
   "versionId": "7a264e72-c152-43f5-9c14-18e8b91f0048",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "b6701c77a4202d4c073fac44e000da78daa9de37e8da0768af67eeb7ae2133c9"
+    "instanceId": "YOUR_N8N_INSTANCE_ID"
   },
   "id": "TORfR4vuV2jcR2Ob",
   "tags": []
